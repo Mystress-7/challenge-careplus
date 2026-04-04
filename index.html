@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Care Plus - Agendamentos</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/assets/css/calendar.css" />
+</head>
+<body>
+    <div id="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="brand mb-4">
+                <h2 class="fw-bold m-0" style="color: white; line-height: 1;"><span style="font-weight: 300;">Care</span><br>Plus <i class="bi bi-activity"></i></h2>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li><a href="inicio.html"><i class="bi bi-house"></i> Início</a></li>
+                <li><a href="perfil.html"><i class="bi bi-person"></i> Perfil</a></li>
+                <li><a href="index.html" class="active"><i class="bi bi-calendar-check-fill"></i> Consultas</a></li>
+                <li><a href="#"><i class="bi bi-chat-square-text"></i> Recompensas</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="mx-auto w-100" style="max-width: 1400px;">
+            
+            <!-- Search Panel -->
+            <div class="search-panel">
+                <h5>Encontre um médico</h5>
+                <form class="search-form align-items-center">
+                    <select class="form-select w-auto" id="searchSpecialty">
+                        <option value="Todas" selected>Especialidade</option>
+                        <option value="Clínica Médica">Clínica Médica</option>
+                        <option value="Ortopedista">Ortopedia</option>
+                        <option value="Dermatologista">Dermatologia</option>
+                        <option value="Cardiologista">Cardiologia</option>
+                    </select>
+
+                    <select class="form-select w-auto" id="searchUnit">
+                        <option value="Todas" selected>Unidade</option>
+                        <option value="1">Care Plus - Vila Olímpica</option>
+                        <option value="2">Care Plus - Paulista</option>
+                    </select>
+
+                    <button type="button" class="search-btn h-100 p-2 ml-2" id="searchBtn">
+                        <i class="bi bi-search" style="font-size: 1.2rem;"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <!-- Calendar Section -->
+                <div class="col-lg-5">
+                    <div class="care-card shadow-sm">
+                        <h4 class="card-title" style="margin-bottom: 25px;">Outubro</h4>
+                        
+                        <div class="calendar-header">
+                            <div style="color: var(--text-dark);">DOM</div>
+                            <div>SEG</div>
+                            <div>TER</div>
+                            <div>QUA</div>
+                            <div>QUI</div>
+                            <div>SEX</div>
+                            <div style="color: var(--text-dark);">SÁB</div>
+                        </div>
+
+                        <div class="calendar-grid" id="calendarGrid">
+                            <!-- Previous month days -->
+                            <div class="calendar-day">28</div>
+                            <div class="calendar-day">29</div>
+                            <div class="calendar-day">30</div>
+                            
+                            <!-- Current month days -->
+                            <!-- Destaques baseados nas cores da imagem -->
+                            <div class="calendar-day current-month active-day text-white">1</div>
+                            <div class="calendar-day current-month">2</div>
+                            <div class="calendar-day current-month">3</div>
+                            <div class="calendar-day current-month weekend">4</div>
+                            
+                            <!-- Simulating rest of dates based on image... -->
+                            <div class="calendar-day current-month weekend" style="color: var(--care-danger);">5</div>
+                            <div class="calendar-day current-month">6</div>
+                            <div class="calendar-day current-month">7</div>
+                            <div class="calendar-day current-month">8</div>
+                            <div class="calendar-day current-month">9</div>
+                            <div class="calendar-day current-month">10</div>
+                            <div class="calendar-day current-month weekend">11</div>
+
+                            <div class="calendar-day current-month weekend" style="color: var(--care-danger);">12</div>
+                            <div class="calendar-day current-month has-user-event">13</div>
+                            <div class="calendar-day current-month has-user-event">14</div>
+                            <div class="calendar-day current-month has-warning">15</div>
+                            <div class="calendar-day current-month has-user-event">16</div>
+                            <div class="calendar-day current-month has-user-event">17</div>
+                            <div class="calendar-day current-month weekend">18</div>
+
+                            <div class="calendar-day current-month weekend" style="color: var(--care-danger);">19</div>
+                            <div class="calendar-day current-month has-user-event">20</div>
+                            <div class="calendar-day current-month has-user-event">21</div>
+                            <div class="calendar-day current-month has-user-event">22</div>
+                            <div class="calendar-day current-month has-user-event">23</div>
+                            <div class="calendar-day current-month has-user-event">24</div>
+                            <div class="calendar-day current-month weekend">25</div>
+
+                            <div class="calendar-day current-month weekend" style="color: var(--care-danger);">26</div>
+                            <div class="calendar-day current-month has-warning">27</div>
+                            <div class="calendar-day current-month has-user-event">28</div>
+                            <div class="calendar-day current-month has-user-event">29</div>
+                            <div class="calendar-day current-month has-danger">30</div>
+                            <div class="calendar-day current-month has-danger" style="color: var(--text-dark); font-weight: bold;">31</div>
+                            <div class="calendar-day weekend" style="color: var(--care-danger);">1</div>
+                        </div>
+
+                        <!-- Legends -->
+                        <div class="calendar-legend mt-4">
+                            <div class="legend-item">
+                                <span class="dot dot-success"></span> Marcadas por você
+                            </div>
+                            <div class="legend-item">
+                                <span class="dot dot-warning"></span> Avisar disponível
+                            </div>
+                            <div class="legend-item">
+                                <span class="dot dot-danger"></span> Overbook
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consultations list section -->
+                <div class="col-lg-7">
+                    <div class="care-card shadow-sm h-100">
+                        <h4 class="card-title mb-4">Consultas</h4>
+                        
+                        <div class="appointment-list">
+                            <!-- Item 1 -->
+                            <div class="appointment-list-item">
+                                <div class="appointment-icon">
+                                    <i class="bi bi-person-video2" style="font-size: 1.5rem; color: var(--text-muted);"></i>
+                                </div>
+                                <div class="appointment-details">
+                                    <p class="appointment-title">Clínica Médica</p>
+                                    <p class="appointment-sub">Care Plus - Vila Olímpica</p>
+                                </div>
+                                <div class="appointment-date text-end">
+                                    <span class="date-main">31 Out 2025</span>
+                                </div>
+                            </div>
+                            
+                        <div class="appointment-list" id="appointmentListContainer">
+                            <!-- Injected recursively by main.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time Slots Section (Image 1 reference) -->
+            <div class="care-card shadow-sm mb-4">
+                <h6 class="text-muted fw-bold mb-4" style="font-size: 0.95rem;">Horários Dia 31/10</h6>
+                <div class="time-slots">
+                    <button class="time-slot" disabled>8:00</button>
+                    <button class="time-slot available">9:00</button>
+                    <button class="time-slot available">10:00</button>
+                    <button class="time-slot available">11:00</button>
+                    <button class="time-slot" disabled>13:00</button>
+                    <button class="time-slot" disabled>14:00</button>
+                    <button class="time-slot" disabled>15:00</button>
+                    <button class="time-slot available">16:00</button>
+                </div>
+            </div>
+
+            <!-- Médicos Fictícios -->
+            <div class="row mt-4 mb-4" id="doctorsContainer">
+                <!-- Injected via main.js -->
+            </div>
+            
+            </div> <!-- Fechamento da div mx-auto -->
+        </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script type="module" src="src/scripts/main.js"></script>
+</body>
+</html>
