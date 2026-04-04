@@ -1,0 +1,92 @@
+:root {
+  --primary-blue: #0d6efd;
+  --soft-blue: #eef6ff;
+}
+
+.calendar-card {
+  width: 350px;
+  border-radius: 20px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.calendar-card.expanded {
+  width: 600px;
+}
+
+.btn-ver-mais {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+.btn-ver-mais:hover {
+  text-decoration: underline;
+}
+
+.calendar-grid-header,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-grid-header div {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #adb5bd;
+  text-align: center;
+}
+
+.day {
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  position: relative;
+}
+
+.day:hover {
+  background: var(--soft-blue);
+}
+.day.active {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.has-appointment::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  width: 4px;
+  height: 4px;
+  background: var(--primary-blue);
+  border-radius: 50%;
+}
+
+.custom-side-panel {
+  position: fixed;
+  top: 0;
+  right: -400px; /* Escondida fora da tela à direita */
+  width: 380px;
+  height: 100vh;
+  background: white;
+  z-index: 1050;
+  transition: right 0.5s ease-in-out;
+}
+
+.custom-side-panel.active {
+  right: 0;
+}
+
+.appointment-item {
+  padding: 15px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  margin-bottom: 12px;
+  border-left: 4px solid var(--primary-blue);
+}
