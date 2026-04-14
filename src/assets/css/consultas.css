@@ -1,0 +1,31 @@
+/* Estilos para Agendamentos e Calendário */
+.search-panel {
+  background-color: var(--care-primary);
+  border-radius: 16px;
+  color: white;
+  padding: 2rem;
+}
+.time-slot {
+  border: 1px solid #e2e8f0;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.time-slot:disabled {
+  background-color: #f1f5f9;
+  color: #cbd5e1;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+}
+.time-slot.available:hover {
+  border-color: var(--care-primary);
+  color: var(--care-primary);
+}
+.appointment-list-item {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+  margin-bottom: 0.5rem;
+}

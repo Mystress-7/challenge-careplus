@@ -1,0 +1,66 @@
+/* Estilos específicos da página de Perfil e Gamificação */
+.profile-large-avatar {
+  transition: transform 0.3s ease;
+}
+.profile-large-avatar:hover {
+  transform: scale(1.02);
+}
+.gold-badge {
+  background-color: #f8b400;
+  color: white;
+  font-weight: 600;
+}
+.bio-textarea:focus {
+  box-shadow: none;
+  background-color: #fff !important;
+  border: 1px solid var(--care-primary) !important;
+}
+/* Timeline */
+.rewards-timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.timeline-step {
+  position: relative;
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  left: -1.25rem;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: #e2e8f0;
+}
+.timeline-step.completed::before,
+.timeline-step.current::before {
+  background: var(--care-warning);
+}
+.step-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  z-index: 2;
+}
+.completed .step-icon {
+  background: var(--care-success);
+}
+.current .step-icon {
+  background: var(--care-warning);
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}

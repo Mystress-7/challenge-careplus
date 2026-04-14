@@ -1,0 +1,41 @@
+/* ESTILOS ESPECÍFICOS DA PÁGINA INICIAL */
+.risk-card {
+  background-color: #f8fafc !important;
+  border: none;
+  border-radius: 16px;
+}
+
+.btn-action-pill {
+  background-color: #e8f5fe;
+  color: var(--care-primary);
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  transition: all 0.2s;
+}
+
+.point-history-card {
+  background-color: #f1f6f9;
+  border-radius: 12px;
+  padding: 12px 10px;
+  min-width: 85px;
+  text-align: center;
+}
+
+.calendar-day.line-danger::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  width: 6px;
+  height: 2px;
+  background-color: var(--care-danger);
+  border-radius: 2px;
+}
+
+.weather-icon-composition {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}

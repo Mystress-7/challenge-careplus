@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Care Plus - Agendamentos</title>
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos Refatorados -->
+    <link rel="stylesheet" href="src/assets/css/global.css" />
+    <link rel="stylesheet" href="src/assets/css/consultas.css" />
+  </head>
+  <body>
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+      <div class="fw-bold m-0" style="line-height: 1">
+        <span style="font-weight: 300">Care</span>Plus
+      </div>
+      <button class="btn text-white p-0" id="sidebarToggle">
+        <i class="bi bi-list" style="font-size: 1.8rem"></i>
+      </button>
+    </div>
+
+    <div id="app-container">
+      <!-- Sidebar -->
+      <nav class="sidebar" id="sidebar">
+        <div
+          class="brand mb-4 d-flex justify-content-between align-items-center"
+        >
+          <h2 class="fw-bold m-0" style="color: white; line-height: 1">
+            <span style="font-weight: 300">Care</span><br />Plus
+            <i class="bi bi-activity"></i>
+          </h2>
+          <button class="btn d-lg-none text-white p-0" id="sidebarClose">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <ul class="sidebar-nav">
+          <li>
+            <a href="inicio.html"><i class="bi bi-house"></i> Início</a>
+          </li>
+          <li>
+            <a href="perfil.html"><i class="bi bi-person"></i> Perfil</a>
+          </li>
+          <li>
+            <a href="consultas.html" class="active"
+              ><i class="bi bi-calendar-check-fill"></i> Consultas</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="mx-auto w-100" style="max-width: 1400px">
+          <!-- Search Panel -->
+          <div class="search-panel">
+            <h5>Encontre um médico</h5>
+            <form class="search-form align-items-center">
+              <select class="form-select w-auto" id="searchSpecialty">
+                <option value="Todas" selected>Especialidade</option>
+                <option value="Clínica Médica">Clínica Médica</option>
+                <option value="Ortopedista">Ortopedia</option>
+                <option value="Dermatologista">Dermatologia</option>
+                <option value="Cardiologista">Cardiologia</option>
+              </select>
+
+              <select class="form-select w-auto" id="searchUnit">
+                <option value="Todas" selected>Unidade</option>
+                <option value="1">Care Plus - Vila Olímpica</option>
+                <option value="2">Care Plus - Paulista</option>
+              </select>
+
+              <button
+                type="button"
+                class="search-btn h-100 p-2 ms-2"
+                id="searchBtn"
+                aria-label="Pesquisar"
+              >
+                <i class="bi bi-search" style="font-size: 1.2rem"></i>
+              </button>
+            </form>
+          </div>
+
+          <div class="row g-4 mb-4">
+            <!-- Calendar Section -->
+            <div class="col-12">
+              <div class="care-card shadow-sm">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-4"
+                >
+                  <h4 class="card-title mb-0" id="currentMonthLabel">
+                    Abril 2026
+                  </h4>
+                  <div class="d-flex gap-2">
+                    <button
+                      class="btn btn-outline-primary btn-sm"
+                      id="prevMonth"
+                      aria-label="Mês anterior"
+                    >
+                      <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button
+                      class="btn btn-outline-primary btn-sm"
+                      id="nextMonth"
+                      aria-label="Próximo mês"
+                    >
+                      <i class="bi bi-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="calendar-header">
+                  <div style="color: var(--text-dark)">DOM</div>
+                  <div>SEG</div>
+                  <div>TER</div>
+                  <div>QUA</div>
+                  <div>QUI</div>
+                  <div>SEX</div>
+                  <div style="color: var(--text-dark)">SÁB</div>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid">
+                  <!-- Injetado dinamicamente via renderCalendar no main.js -->
+                </div>
+
+                <!-- Legends -->
+                <div class="calendar-legend mt-4">
+                  <div class="legend-item">
+                    <span class="dot dot-success"></span> Marcadas por você
+                  </div>
+                  <div class="legend-item">
+                    <span class="dot dot-warning"></span> Avisar disponível
+                  </div>
+                  <div class="legend-item">
+                    <span class="dot dot-danger"></span> Overbook
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time Slots Section (Image 1 reference) -->
+          <div class="care-card shadow-sm mb-4">
+            <h6
+              id="selectedDayLabel"
+              class="text-muted fw-bold mb-4"
+              style="font-size: 0.95rem"
+            >
+              Selecione uma data no calendário
+            </h6>
+            <div class="time-slots" id="timeSlotsContainer">
+              <!-- Injetado via JS -->
+            </div>
+          </div>
+
+          <!-- Médicos Fictícios -->
+          <div class="row mt-4 mb-4" id="doctorsContainer">
+            <!-- Injected via main.js -->
+          </div>
+
+          <!-- Consultations list section -->
+          <div class="care-card shadow-sm mb-4">
+            <h4 class="card-title mb-4">Consultas Agendadas</h4>
+            <div class="appointment-list" id="appointmentListContainer">
+              <p class="text-muted p-3">Carregando consultas...</p>
+            </div>
+          </div>
+        </div>
+        <!-- Fechamento da div mx-auto -->
+      </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script type="module" src="src/scripts/main.js"></script>
+  </body>
+</html>
